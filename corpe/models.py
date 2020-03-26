@@ -8,8 +8,18 @@ class Dataset(db.Model):
     __tablename__ = 'datasets'
     id = db.Column(db.Integer, primary_key=True)
     age = db.Column(db.Integer, nullable=False)
-    sex = db.Column(db.CHAR, nullable=False)
-    cp = db.Column(db.CHAR, nullable=False)
+    sex = db.Column(db.SmallInteger, nullable=False)
+    cp = db.Column(db.SmallInteger, nullable=False)
+    trestbps = db.Column(db.Integer, nullable=False)
+    chol = db.Column(db.Integer, nullable=False)
+    fbs = db.Column(db.SmallInteger, nullable=False)
+    restecg = db.Column(db.SmallInteger, nullable=False)
+    thalach = db.Column(db.Integer, nullable=False)
+    exang = db.Column(db.SmallInteger, nullable=False)
+    oldpeak = db.Column(db.Float, nullable=False)
+    slope = db.Column(db.SmallInteger, nullable=False)
+    ca = db.Column(db.SmallInteger, nullable=False)
+    thal = db.Column(db.SmallInteger, nullable=False)
     target = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
@@ -26,3 +36,6 @@ class Admin(db.Model, UserMixin):
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+
+    def __repr__(self):
+        return '<Username {}>'.format(self.username)

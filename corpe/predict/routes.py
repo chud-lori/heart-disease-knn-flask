@@ -5,16 +5,25 @@ from corpe import db
 from corpe.models import Dataset
 from corpe.predict.forms import PredictForm
 from corpe.predict.knn import knn
+import csv
 
 predict_bp = Blueprint('predict', __name__)
 
 @predict_bp.route('/a')
 def a():
     """ Endpoint to create datasets"""
-    ds = Dataset(age=50, sex=2, cp=1, target=0)
-    db.session.add(ds)
+    if len(Dataset.query.all()) >= 303:
+        return redirect('/')
+    with open(current_app.instance_path+'/heart.csv', newline='') as csvfile:
+        heart_csv = csv.reader(csvfile)
+        next(heart_csv)
+        for row in heart_csv:
+            data = Dataset(age=row[0], sex=row[1], cp=row[2], trestbps=row[3], chol=row[4],\
+                fbs=row[5], restecg=row[6], thalach=row[7], exang=row[8], oldpeak=row[9],\
+                slope=row[10], ca=row[11], thal=row[12], target=row[13])
+            db.session.add(data)
     db.session.commit()
-    return make_response("Dataset created!")
+    return make_response('Dataset created')
 
 @predict_bp.route('/predict', methods=['GET', 'POST'])
 def predict():
