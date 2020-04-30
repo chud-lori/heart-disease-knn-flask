@@ -1,6 +1,6 @@
 from flask import (Flask, render_template, flash, Blueprint,
                     current_app, url_for, request, redirect,
-                    make_response)
+                    make_response, session)
 from corpe import db
 from corpe.models import Dataset
 from corpe.predict.forms import PredictForm
@@ -13,7 +13,7 @@ predict_bp = Blueprint('predict', __name__)
 def a():
     """ Endpoint to create datasets"""
     if len(Dataset.query.all()) >= 303:
-        return redirect('/')
+        abort(404)
     with open(current_app.instance_path+'/heart.csv', newline='') as csvfile:
         heart_csv = csv.reader(csvfile)
         next(heart_csv)
@@ -29,20 +29,32 @@ def a():
 def predict():
     form = PredictForm()
     if form.validate_on_submit():
+        data = [form.age.data, form.sex.data, form.cp.data, form.trestbps.data,
+                form.chol.data, form.fbs.data, form.restecg.data, form.thalach.data,
+                form.exang.data, form.oldpeak.data, form.slope.data, form.ca.data, form.thal.data]
         result = knn(form.age.data)
-        if result == 1:
-            target = 1
-        else:
-            target = 0
-        ds = Dataset(age=form.age.data, sex=form.sex.data, cp=3, target=target)
+        # row = [572,1,1,154,232,0,0,164,0,0,2,1,2]
+        ds = Dataset(age=data[0], sex=data[1], cp=data[2], trestbps=data[3], chol=data[4],\
+                fbs=data[5], restecg=data[6], thalach=data[7], exang=data[8], oldpeak=data[9],\
+                slope=data[10], ca=data[11], thal=data[12], target=result)
         db.session.add(ds)
         db.session.commit()
-        flash('DONEEEKNN', 'success')
+        # session['predicted'] = ds.id
+        flash('Hore', 'success')
         return redirect(url_for('predict.predicted', id=ds.id))
-        # return redirect(url_for('predict.predicted', id=3))
+        # return redirect(url_for('predict.result'))
     return render_template('predict/index.html', title='Cek', form=form)
 
 @predict_bp.route('/predict/result/<int:id>')
 def predicted(id):
     data = Dataset.query.get_or_404(id)
     return render_template('predict/result.html', title='Hasil', data=data)
+
+@predict_bp.route('/predict/result')
+def result():
+    if session['predicted']:
+        session.clear()
+        return str(session['predicted'])
+    else:
+        return 'no session'
+    # return render_template('predict/result.html', title='Hasil', data=data)

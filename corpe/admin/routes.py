@@ -2,7 +2,7 @@ from flask import (render_template, url_for, flash, redirect,
                     request, Blueprint, current_app, make_response)
 from corpe import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
-from corpe.models import Admin
+from corpe.models import Admin, Dataset
 from corpe.admin.forms import LoginForm
 
 admin_bp = Blueprint('admin', __name__)
@@ -30,7 +30,8 @@ def logout():
 @admin_bp.route('/home')
 @login_required
 def home():
-    return make_response(f'Allo {current_user.username}')
+    datas = Dataset.query.filter('target'!=0).all()
+    return render_template('admin/home.html', datas=datas)
 
 @admin_bp.route('/gen')
 def gen():

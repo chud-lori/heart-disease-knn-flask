@@ -1,6 +1,7 @@
 # Heart Disease Predictor using KNN Algorithm and Flask Micro Web Framework
 
 Nothing.
+Corpe -> Coroner Prediction
 
 ## Requirements
 * Python 3.6

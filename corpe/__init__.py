@@ -10,7 +10,9 @@ db = SQLAlchemy()
 # migrate = Migrate()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-# login_manager.login_view = 'users.login'
+login_manager.login_view = 'admin.login'
+login_manager.login_message = 'RA GACO COK!!'
+login_manager.login_message_category = 'danger'
 
 def create_app(config=Config):
     app = Flask(__name__, instance_relative_config=True)
@@ -34,9 +36,8 @@ def create_app(config=Config):
         
         from corpe.predict.routes import predict_bp
         from corpe.admin.routes import admin_bp
+        from corpe.main_routes import main_bp
         app.register_blueprint(predict_bp)
         app.register_blueprint(admin_bp)
-        @app.route('/')
-        def index():
-            return '<h1>Hallo</h1>'
+        app.register_blueprint(main_bp)
         return app
