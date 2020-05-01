@@ -32,11 +32,11 @@ def predict():
         data = [form.age.data, form.sex.data, form.cp.data, form.trestbps.data,
                 form.chol.data, form.fbs.data, form.restecg.data, form.thalach.data,
                 form.exang.data, form.oldpeak.data, form.slope.data, form.ca.data, form.thal.data]
-        result = knn(form.age.data)
+        result = knn(data)
         # row = [572,1,1,154,232,0,0,164,0,0,2,1,2]
         ds = Dataset(age=data[0], sex=data[1], cp=data[2], trestbps=data[3], chol=data[4],\
                 fbs=data[5], restecg=data[6], thalach=data[7], exang=data[8], oldpeak=data[9],\
-                slope=data[10], ca=data[11], thal=data[12], target=result)
+                slope=data[10], ca=data[11], thal=data[12], target=str(result))
         db.session.add(ds)
         db.session.commit()
         # session['predicted'] = ds.id

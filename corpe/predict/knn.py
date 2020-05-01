@@ -50,4 +50,4 @@ def knn(data):
 
     # # Show result
 
-    return str(result)
+    return result[0]
