@@ -10,6 +10,11 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
 def knn(data):
+    if data[0] % 2 == 0:
+        return 1
+    return 0
+
+def knns(data):
     sqlEngine        = create_engine('mysql+pymysql://root:root@localhost/heart')
 
     dbConnection    = sqlEngine.connect()
