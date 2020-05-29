@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #banner .inner {
+            border-top: 0px !important;
+            padding-top: 0px !important;
+        }
+
+        #banner .flex div {
+            border-right: 0px !important;
+            padding: 0 !important;
+        }
+
+        #banner {
+            /*margin: 10em auto 4em auto !important;*/
+            padding-bottom: 1em !important;
+        }
+
+        #regForm {
+            margin: 0px auto;
+            font-family: Raleway;
+            padding: 40px;
+            width: 70%;
+            min-width: 300px;
+        }
+
+        label {
+            float: left;
+            margin-bottom: 10px;
+            font-size: 1.6em;
+            color: #fff;
+            font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            margin: 10px;
+            background: transparent !important;
+            width: 100%;
+            font-size: 17px;
+            font-family: Raleway;
+            border: 1px solid #aaaaaa;
+        }
+
+        select {
+            background: transparent !important;
+            color: #8dcca9;
+        }
+
+        select:hover,
+        select:after {
+            color: black;
+        }
+
+        /* Mark input boxes that gets an error on validation: */
+        input.invalid {
+            border-color: #ce2323 !important;
+        }
+
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+
+        #prevBtn {
+            background-color: #bbbbbb;
+        }
+
+        /* Make circles that indicate the steps of the form: */
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #6cc091;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo"><strong>KNN</strong> HEartr Dissease</a>
+        </div>
+    </header>
+    {% if result %}
+    {{ result }}
+    {% endif %}
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <header>
+                <h1>Prediction</h1>
+            </header>
+
+            <div class="flex ">
+                <form method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    <div class="tab field">
+                        <label for="">Umur</label>
+                        {% if form.age.errors %}
+                        {{ form.age(class="invalid", value="33", oninput="this.className = ''") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.age.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.age(value="33", oninput="this.className = ''") }}
+                        {% endif %}
+                        <label for="">Jenis Kelamin</label>
+                        {% if form.sex.errors %}
+                        {{ form.sex() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sex.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.sex() }}
+                        {% endif %}
+                    </div>
+                    <div class="tab field">
+                        <label for="">Jenis nyeri pada dada</label>
+                        {% if form.cp.errors %}
+                        {{ form.cp() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.cp.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.cp() }}
+                        {% endif %}
+                        <label for="">Tekanan darah istirahat saat istirahat</label>
+                        {% if form.trestbps.errors %}
+                        {{ form.trestbps(class="invalid", value="120", oninput="this.className = ''") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.trestbps.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.trestbps(value="120", oninput="this.className = ''") }}
+                        {% endif %}
+                        <label for="">Kolesterol dalam mg/dl</label>
+                        {% if form.chol.errors %}
+                        {{ form.chol(class="invalid", value="220", oninput="this.className = ''") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.chol.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.chol(value="220", oninput="this.className = ''") }}
+                        {% endif %}
+                    </div>
+                    <div class="tab field">
+                        <label for="">Kadar gula darah > 120 mg/dl</label>
+                        {% if form.fbs.errors %}
+                        {{ form.fbs() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fbs.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.fbs() }}
+                        {% endif %}
+                        <label for="">Hasil tes elektrokardiografi saat istirahat</label>
+                        {% if form.restecg.errors %}
+                        {{ form.restecg() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.restecg.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.restecg() }}
+                        {% endif %}
+                        <label for="">Denyut jantung maksimum</label>
+                        {% if form.thalach.errors %}
+                        {{ form.thalach(class="invalid", value="130", oninput="this.className = ''") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.thalach.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.thalach(value="130", oninput="this.className = ''") }}
+                        {% endif %}
+                    </div>
+                    <div class="tab field">
+                        <label for="">Nyeri saat beraktifitas</label>
+                        {% if form.exang.errors %}
+                        {{ form.exang() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.exang.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.exang() }}
+                        {% endif %}
+                        <label for="">Penurunan ST saat beraktifitas</label>
+                        {% if form.oldpeak.errors %}
+                        {{ form.oldpeak(class="invalid", value="2.2", oninput="this.className = ''") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.oldpeak.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.oldpeak(value="2.2", oninput="this.className = ''") }}
+                        {% endif %}
+                    </div>
+                    <div class="tab field">
+                        <label for="">Kemiringan puncak ST saat beraktifitas</label>
+                        {% if form.slope.errors %}
+                        {{ form.slope() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.slope.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.slope() }}
+                        {% endif %}
+                        <label for="">Pembuluh darah terdeteksi</label>
+                        {% if form.ca.errors %}
+                        {{ form.ca() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.ca.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.ca() }}
+                        {% endif %}
+                        <label for="">Pemeriksaan thalassemia</label>
+                        {% if form.thal.errors %}
+                        {{ form.thal() }}
+                        <div class="invalid-feedback">
+                            {% for error in form.thal.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.thal() }}
+                        {% endif %}
+                    </div>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+
+                        </div>
+                        <ul class="actions">
+                            <li><button type="button" id="prevBtn" class="button alt"
+                                    onclick="nextPrev(-1)">Previous</button></li>
+                            <li><button type="button" id="nextBtn" class="button alt"
+                                    onclick="nextPrev(1)" name="hih">Next</button></li>
+                        </ul>
+                    </div>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+
+            <h3>Get in touch</h3>
+
+            <form action="#" method="post">
+
+                <div class="field half first">
+                    <label for="name">Name</label>
+                    <input name="name" id="name" type="text" placeholder="Name">
+                </div>
+                <div class="field half">
+                    <label for="email">Email</label>
+                    <input name="email" id="email" type="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input value="Send Message" class="button alt" type="submit"></li>
+                </ul>
+            </form>
+
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+                    href="https://unsplash.com">Unsplash</a>.
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/static/assets/js/step.js"></script>
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/js/skel.min.js"></script>
+    <script src="/static/assets/js/util.js"></script>
+    <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

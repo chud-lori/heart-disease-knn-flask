@@ -59,7 +59,7 @@ def predict():
         # return redirect(url_for('predict.predicted', id=ds.id))
         return redirect(url_for('predict.result'))
     # route get
-    return render_template('predict/index.html', title='Cek', form=form)
+    return render_template('predict/predict.html', title='Cek', form=form)
 
 @predict_bp.route('/predict/result')
 def result():

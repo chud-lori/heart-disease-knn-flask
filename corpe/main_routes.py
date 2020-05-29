@@ -11,4 +11,16 @@ main_bp = Blueprint('main', __name__)
 def index():
     # clear session every load this page
     session.clear()
-    return render_template('index.html')
+    return render_template('index.html', title='LORI')
+
+@main_bp.route('/tentang')
+def tentang():
+    return render_template('tentang.html', title='Tentang')
+
+@main_bp.route('/petunjuk')
+def petunjuk():
+    return render_template('petunjuk.html', title='Petunjuk Penggunaan')
+
+@main_bp.route('/koroner')
+def koroner():
+    return render_template('koroner.html', title='Jantung')

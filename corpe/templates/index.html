@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Projection by TEMPLATED</title>
+		<title>{{ title }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/static/assets/css/main.css" />
@@ -17,7 +17,13 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo"><strong>KNN</strong> HEartr Dissease</a>
+					<a href="{{ url_for('main.index') }}" class="logo"><strong>KNN</strong> HEartr Dissease</a>
+					<nav id="nav">
+						<a href="{{ url_for('main.index') }}">Bernada</a>
+						<a href="{{ url_for('main.petunjuk') }}">Petunjuk Penggunaan</a>
+						<a href="{{ url_for('main.koroner') }}">Jantung</a>
+						<a href="{{ url_for('main.tentang') }}">Tentang</a>
+					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
 			</header>
@@ -26,27 +32,27 @@
 			<section id="banner">
 				<div class="inner">
 					<header>
-						<h1>Welcome to Projection</h1>
+						<h1>Hallo</h1>
 					</header>
 
 					<div class="flex ">
 
 						<div>
-							<a href="elements.html" style="text-decoration: none;"><span class="icon fa-car"></span></a>
-							<h3>Aliquam</h3>
-							<p>Suspendisse amet ullamco</p>
+							<a href="{{ url_for('main.petunjuk') }}" style="text-decoration: none;"><span class="icon fa-play"></span></a>
+							<h3>Petunjuk</h3>
+							<p>Penggunaan aplikasi</p>
 						</div>
 
 						<div>
-							<a href="generic.html" style="text-decoration: none;"><span class="icon fa-heart"></span></a>
+							<a href="{{ url_for('main.koroner') }}" style="text-decoration: none;"><span class="icon fa-heart"></span></a>
 							<h3>Jantung Koroner</h3>
-							<p>Class aptent taciti ad litora</p>
+							<p>Sekilas tentang</p>
 						</div>
 
 						<div>
-							<a href="{{ url_for('predict.predict') }}" style="text-decoration: none;"><span class="icon fa-address-card"></span></a>
+							<a href="{{ url_for('main.tentang') }}" style="text-decoration: none;"><span class="icon fa-address-card"></span></a>
 							<h3>Profil</h3>
-							<p>Nulla vitae mauris non felis</p>
+							<p>Profil aplikasi</p>
 						</div>
 
 					</div>
@@ -56,6 +62,37 @@
 					</footer>
 				</div>
 			</section>
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h3>Get in touch</h3>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Name</label>
+							<input name="name" id="name" type="text" placeholder="Name">
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input name="email" id="email" type="email" placeholder="Email">
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Send Message" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<div class="copyright">
+						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+					</div>
+
+				</div>
+			</footer>
 
 		<!-- Scripts -->
 			<script src="/static/assets/js/jquery.min.js"></script>
