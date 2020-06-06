@@ -46,6 +46,7 @@ def predict():
                 form.exang.data, form.oldpeak.data, form.slope.data, form.ca.data, form.thal.data]
         # predict using knn module and get target result assign to 'result'
         result = knn(data)
+        # dummy data
         # row = [572,1,1,154,232,0,0,164,0,0,2,1,2]
         # process to database
         ds = Dataset(age=data[0], sex=data[1], cp=data[2], trestbps=data[3], chol=data[4],\

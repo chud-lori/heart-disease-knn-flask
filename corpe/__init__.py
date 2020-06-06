@@ -11,7 +11,7 @@ db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = 'admin.login'
-login_manager.login_message = 'RA GACO COK!!'
+login_manager.login_message = 'RA GACO BRUH!!'
 login_manager.login_message_category = 'danger'
 
 def create_app(config=Config):
