@@ -27,7 +27,7 @@ def knn(data):
     train_feature = dataset.iloc[:, 1:-1].values
     target = dataset.iloc[:, 14].values
 
-    # Scaling
+    # Scaling and it uses Z-Score
     scaler = StandardScaler()
     scaler.fit(train_feature)
     # Scaling the dataset feature
@@ -47,7 +47,7 @@ def knn(data):
     test_input_pca = pca.transform(test_input_scaled)
 
     # Set the KNN and the K with PCA
-    classifier = KNeighborsClassifier(n_neighbors=4)
+    classifier = KNeighborsClassifier(n_neighbors=5)
     classifier.fit(train_pca, target)
     result=classifier.score(train_pca, target)
     # Prediction

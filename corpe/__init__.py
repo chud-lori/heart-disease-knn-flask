@@ -23,17 +23,6 @@ def create_app(config=Config):
     bcrypt.init_app(app)
     login_manager.init_app(app)
     with app.app_context():
-        # Admin.__table__.create(db.engine)
-        # Initialize Global db
-        # ss=db.create_all()
-        # if ss:
-        #     print("ISO")
-        # else:
-        #     print("RAISO")
-        # from corpe import db, create_app
-        # db.drop_all(app=create_app())
-        # db.create_all(app=create_app())
-        
         from corpe.predict.routes import predict_bp
         from corpe.admin.routes import admin_bp
         from corpe.main_routes import main_bp

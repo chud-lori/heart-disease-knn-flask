@@ -24,7 +24,7 @@ Run this command and access the web app at `localhost:5000`
 flask run
 ```
 Access `localhost:5000/gen` to seed admin\
-Access `localhost:5000/a` to seed datasets
+Access `localhost:5000/gen-ds` to seed datasets
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

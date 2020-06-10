@@ -11,8 +11,8 @@ import csv
 predict_bp = Blueprint('predict', __name__)
 
 # route to generate dataset into database
-@predict_bp.route('/a')
-def a():
+@predict_bp.route('/gen-ds')
+def generate_dataset():
     """ Endpoint to create datasets"""
     # if dataset was created
     if len(Dataset.query.all()) >= 303:

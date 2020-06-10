@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        <ul class=flashes>
-        {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
+{% extends "layouts/base-sub.html" %}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+
+{% if data.target == 1 %}
+<!-- Berpotensi -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><strong>Anda berpotensi terserang penyakit jantung</strong></h2>
+            <p></p>
+        </header>
+
+        <!-- Intro -->
+            <div class="row">
+                <p>
+                    <h4>Segera perbaiki gaya hidup anda dengan perilaku hidup sehat, pola makan dan tidur yang baik serta rajin berolahraga.</h4>
+                </p>
             </div>
-        {% endfor %}
-        </ul>
-    {% endif %}
-    {% endwith %}
-    <h1>ID: {{ data.id }}</h1>
-    <h1>Umur: {{ data.age }}</h1>
-    <h1>Jenis Kelamin: {{ data.sex }}</h1>
-    <h1>CP: {{ data.cp }}</h1>
-    <h1>trestbps: {{ data.trestbps }}</h1>
-    <h1>chol: {{ data.chol }}</h1>
-    <h1>fbs: {{ data.fbs }}</h1>
-    <h1>restecg: {{ data.restecg }}</h1>
-    <h1>thalach: {{ data.thalach }}</h1>
-    <h1>exang: {{ data.exang }}</h1>
-    <h1>oldpeak: {{ data.oldpeak }}</h1>
-    <h1>slope: {{ data.slope }}</h1>
-    <h1>ca: {{ data.ca }}</h1>
-    <h1>thal: {{ data.thal }}</h1>
-    <h1>Hasil:
-        {% if data.target == 1 %}
-            Anda berpotensi penyakit jantung
-        {% else %}
-            Anda tidak berpotensi penyakit jantung
-        {% endif %}
-    </h1>
-</body>
-</html>
+
+        <hr class="major" />
+</section>
+{% else %}
+<!-- Tidak berpotensi -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><strong>Anda tidak berpotensi terserang penyakit jantung</strong></h2>
+            <p></p>
+        </header>
+
+        <!-- Intro -->
+            <div class="row">
+                <p>
+                    <h4>Anda dalam kondisi baik dan belum ada tanda potensi penyakit jantung. Namun, jangan berhenti hidup sehat.</h4>
+                </p>
+            </div>
+
+        <hr class="major" />
+</section>
+{% endif %}
+{% endblock %}
