@@ -7,16 +7,17 @@ function showTab(n) {
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
+  // hide submit button
+  document.getElementById("submit").style.display = "none";
+
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    // $("#nextBtn").remove();
-    document.getElementById("nextBtn").innerHTML = "Submit";
-    document.getElementsByName("hih")[0].type = "submit";
-    // $(".actions").append("<li id='submit'><input class='button alt' id='submit' name='submit' type='submit' value='Submit'></li>");
+  document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("submit").style.display = "inline";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
