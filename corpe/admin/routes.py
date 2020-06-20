@@ -30,7 +30,8 @@ def logout():
 @admin_bp.route('/home')
 @login_required
 def home():
-    datas = Dataset.query.filter('target'!=0).all()
+    query = "select * from datasets where id>303"
+    datas = db.engine.execute(query)
     return render_template('admin/home.html', datas=datas)
 
 @admin_bp.route('/gen')
