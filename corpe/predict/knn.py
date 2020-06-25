@@ -1,13 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 from sqlalchemy import create_engine
 import pymysql
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, confusion_matrix
 
 # def knn(data):
 #     if data[0] % 2 == 0:
@@ -39,7 +36,7 @@ def knn(data):
 
     # PCA WORKS
     # Make an instance of the Model
-    pca = PCA(.95)
+    pca = PCA(3)
     # FIT the train set only
     pca.fit(train_scaled)
     # Transform pca to train and test
@@ -47,9 +44,10 @@ def knn(data):
     test_input_pca = pca.transform(test_input_scaled)
 
     # Set the KNN and the K with PCA
-    classifier = KNeighborsClassifier(n_neighbors=5)
+    classifier = KNeighborsClassifier(n_neighbors=7)
     classifier.fit(train_pca, target)
-    result=classifier.score(train_pca, target)
+    # Scoring
+    # result=classifier.score(train_pca, target)
     # Prediction
     result=classifier.predict(test_input_pca)
 

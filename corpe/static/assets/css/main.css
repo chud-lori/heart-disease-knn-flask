@@ -2917,8 +2917,8 @@
 
 	#banner {
 		padding: 8em 0 9em 0;
-		background-image: url(http://localhost/doi/assets/img_parallax2.jpg);
-		/* background-image: url(https://349142-1097166-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/bigstock-Mature-Man-Heart-Attack-1781119-1000x520.jpg); */
+		/*background-image: url(http://localhost/doi/assets/img_parallax2.jpg);*/
+		background-image: url(https://349142-1097166-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/bigstock-Mature-Man-Heart-Attack-1781119-1000x520.jpg);
 		background-size: cover;
 		background-position: bottom;
 		background-attachment: fixed;
