@@ -21,6 +21,6 @@ def tentang():
 def petunjuk():
     return render_template('main/petunjuk.html', title='Petunjuk Penggunaan')
 
-@main_bp.route('/koroner')
+@main_bp.route('/jantung')
 def koroner():
-    return render_template('main/koroner.html', title='Jantung')
+    return render_template('main/jantung.html', title='Jantung')
