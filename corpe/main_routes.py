@@ -13,14 +13,14 @@ def index():
     session.clear()
     return render_template('main/index.html', title='LORI')
 
-@main_bp.route('/tentang')
-def tentang():
-    return render_template('main/tentang.html', title='Tentang')
+@main_bp.route('/about')
+def about():
+    return render_template('main/about.html', title='Tentang')
 
-@main_bp.route('/petunjuk')
-def petunjuk():
-    return render_template('main/petunjuk.html', title='Petunjuk Penggunaan')
+@main_bp.route('/guide')
+def guide():
+    return render_template('main/guide.html', title='Petunjuk Penggunaan')
 
-@main_bp.route('/jantung')
-def koroner():
-    return render_template('main/jantung.html', title='Jantung')
+@main_bp.route('/heart')
+def heart():
+    return render_template('main/heart.html', title='Jantung')

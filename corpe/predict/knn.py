@@ -36,7 +36,7 @@ def knn(data):
 
     # PCA WORKS
     # Make an instance of the Model
-    pca = PCA(3)
+    pca = PCA(2)
     # FIT the train set only
     pca.fit(train_scaled)
     # Transform pca to train and test
