@@ -1,3 +1,7 @@
+"""
+run from python using flask run
+"""
+
 from corpe import create_app
 
 # create instance app

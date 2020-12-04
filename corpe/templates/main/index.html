@@ -5,122 +5,133 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>{{ title }}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/static/assets/css/main.css" />
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style>
-			.a-footer {
-				color: #fff !important;
-				text-decoration: none;
-			}
-			.icon-footer {
-				color: #fff !important;
-				font-size: 1em !important;
-			}
-		</style>
-	</head>
-	<body>
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="{{ url_for('main.index') }}" class="logo"><strong>KNN</strong> Heart Dissease</a>
-					<nav id="nav">
-						<a href="{{ url_for('main.index') }}">Bernada</a>
-						<a href="{{ url_for('main.guide') }}">Petunjuk Penggunaan</a>
-						<a href="{{ url_for('main.heart') }}">Jantung</a>
-						<a href="{{ url_for('main.about') }}">Tentang</a>
-					</nav>
-					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon"
+		href="https://www.freepngimg.com/download/heart/36704-5-dark-red-heart-transparent-background.png"
+		type="image/x-icon">
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.a-footer {
+			color: #fff !important;
+			text-decoration: none;
+		}
+
+		.icon-footer {
+			color: #fff !important;
+			font-size: 1em !important;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<div class="inner">
+			<a href="{{ url_for('main.index') }}" class="logo"><strong>KNN</strong> Heart Dissease</a>
+			<nav id="nav">
+				<a href="{{ url_for('main.index') }}">Bernada</a>
+				<a href="{{ url_for('main.guide') }}">Petunjuk Penggunaan</a>
+				<a href="{{ url_for('main.heart') }}">Jantung</a>
+				<a href="{{ url_for('main.about') }}">Tentang</a>
+			</nav>
+			<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+		</div>
+	</header>
+
+	<!-- Banner -->
+	<section id="banner">
+		<div class="inner">
+			<header>
+				<h1>Selamat datang</h1>
 			</header>
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<header>
-						<h1>Selamat datang</h1>
-					</header>
+			<div class="flex ">
 
-					<div class="flex ">
-
-						<div>
-							<a href="{{ url_for('main.guide') }}" style="text-decoration: none;"><span class="icon fa-play"></span></a>
-							<h3>Petunjuk</h3>
-							<p>Penggunaan aplikasi</p>
-						</div>
-
-						<div>
-							<a href="{{ url_for('main.heart') }}" style="text-decoration: none;"><span class="icon fa-heart"></span></a>
-							<h3>Jantung Koroner</h3>
-							<p>Sekilas tentang</p>
-						</div>
-
-						<div>
-							<a href="{{ url_for('main.about') }}" style="text-decoration: none;"><span class="icon fa-address-card"></span></a>
-							<h3>Profil</h3>
-							<p>Profil aplikasi</p>
-						</div>
-
-					</div>
-
-					<footer>
-						<a href="{{ url_for('predict.predict') }}" class="button">Predict</a>
-					</footer>
+				<div>
+					<a href="{{ url_for('main.guide') }}" style="text-decoration: none;"><span
+							class="icon fa-play"></span></a>
+					<h3>Petunjuk</h3>
+					<p>Penggunaan aplikasi</p>
 				</div>
-			</section>
-			<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-		
-					<div class="row">
-						<!-- Break -->
-						<div class="4u 12u$(medium)">
-							<h3>Get in touch</h3>
-							<ul class="icons">
-								<li><a href="https://twitter.com/chud_lori" class="icon icon-footer fa-twitter"><span
-											class="label">Twitter</span></a></li>
-								<li><a href="http://facebook.com/" class="icon icon-footer fa-facebook"><span
-											class="label">Facebook</span></a></li>
-								<li><a href="https://medium.com/@chud_lori" class="icon icon-footer fa-medium"><span
-											class="label">Instagram</span></a></li>
-								<li><a href="https://github.com/chud-lori" class="icon icon-footer fa-github"><span
-											class="label">Github</span></a></li>
-							</ul>
-						</div>
-						<div class="4u 12u$(medium)">
-							<h3>Info</h3>
-							<p>Sistem ini masih membutuhkan banyak peningkatan. Jika anda tertarik untuk
-								melakukan peningkatan silakan pull request di <a class="a-footer"
-									href="https://github.com/chud-lori/coronary-knn-flask">repository</a></p>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<h3>Sitemap</h3>
-							<ul class="alt">
-								<li><a class="a-footer" href="/">Bernada</a></li>
-								<li><a class="a-footer" href="/petunjuk">Petunjuk</a></li>
-								<li><a class="a-footer" href="/koroner">Koroner</a></li>
-								<li><a class="a-footer" href="/tentang">Tentang</a></li>
-							</ul>
-						</div>
-					</div>
-		
-					<div class="copyright" style="display: none;">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
-							href="https://unsplash.com">Unsplash</a>.
-					</div>
-		
+
+				<div>
+					<a href="{{ url_for('main.heart') }}" style="text-decoration: none;"><span
+							class="icon fa-heart"></span></a>
+					<h3>Jantung Koroner</h3>
+					<p>Sekilas tentang</p>
 				</div>
+
+				<div>
+					<a href="{{ url_for('main.about') }}" style="text-decoration: none;"><span
+							class="icon fa-address-card"></span></a>
+					<h3>Profil</h3>
+					<p>Profil aplikasi</p>
+				</div>
+
+			</div>
+
+			<footer>
+				<a href="{{ url_for('predict.predict') }}" class="button">Predict</a>
 			</footer>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
 
-		<!-- Scripts -->
-			<script src="/static/assets/js/jquery.min.js"></script>
-			<script src="/static/assets/js/skel.min.js"></script>
-			<script src="/static/assets/js/util.js"></script>
-			<script src="/static/assets/js/main.js"></script>
+			<div class="row">
+				<!-- Break -->
+				<div class="4u 12u$(medium)">
+					<h3>Get in touch</h3>
+					<ul class="icons">
+						<li><a href="https://twitter.com/chud_lori" class="icon icon-footer fa-twitter"><span
+									class="label">Twitter</span></a></li>
+						<li><a href="http://facebook.com/" class="icon icon-footer fa-facebook"><span
+									class="label">Facebook</span></a></li>
+						<li><a href="https://medium.com/@chud_lori" class="icon icon-footer fa-medium"><span
+									class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/chud-lori" class="icon icon-footer fa-github"><span
+									class="label">Github</span></a></li>
+					</ul>
+				</div>
+				<div class="4u 12u$(medium)">
+					<h3>Info</h3>
+					<p>Sistem ini masih membutuhkan banyak peningkatan. Jika anda tertarik untuk
+						melakukan peningkatan silakan pull request di <a class="a-footer"
+							href="https://github.com/chud-lori/coronary-knn-flask">repository</a></p>
+				</div>
+				<div class="4u$ 12u$(medium)">
+					<h3>Sitemap</h3>
+					<ul class="alt">
+						<li><a class="a-footer" href="/">Bernada</a></li>
+						<li><a class="a-footer" href="/petunjuk">Petunjuk</a></li>
+						<li><a class="a-footer" href="/koroner">Koroner</a></li>
+						<li><a class="a-footer" href="/tentang">Tentang</a></li>
+					</ul>
+				</div>
+			</div>
 
-	</body>
+			<div class="copyright" style="display: none;">
+				&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+					href="https://unsplash.com">Unsplash</a>.
+			</div>
+
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/skel.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+
+</body>
+
 </html>

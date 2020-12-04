@@ -1,6 +1,6 @@
 from flask import (Flask, render_template, flash, Blueprint,
-                    current_app, url_for, request, redirect,
-                    make_response, session, abort)
+                   current_app, url_for, request, redirect,
+                   make_response, session, abort)
 from corpe import db
 from corpe.models import Dataset
 from corpe.predict.forms import PredictForm
@@ -11,6 +11,8 @@ import csv
 predict_bp = Blueprint('predict', __name__)
 
 # route to generate dataset into database
+
+
 @predict_bp.route('/gen-ds')
 def generate_dataset():
     """ Endpoint to create datasets"""
@@ -25,18 +27,23 @@ def generate_dataset():
         next(heart_csv)
         # loop and add to session
         for row in heart_csv:
-            data = Dataset(age=row[0], sex=row[1], cp=row[2], trestbps=row[3], chol=row[4],\
-                fbs=row[5], restecg=row[6], thalach=row[7], exang=row[8], oldpeak=row[9],\
-                slope=row[10], ca=row[11], thal=row[12], target=row[13])
+            data = Dataset(age=row[0], sex=row[1], cp=row[2], trestbps=row[3], chol=row[4],
+                           fbs=row[5], restecg=row[6], thalach=row[7], exang=row[8], oldpeak=row[9],
+                           slope=row[10], ca=row[11], thal=row[12], target=row[13])
             db.session.add(data)
     # commit and show basic response
     db.session.commit()
     return make_response('Dataset created')
 
 # route to heart dissease prediction
+
+
 @predict_bp.route('/predict', methods=['GET', 'POST'])
 def predict():
-    # crfeate instance PredictForm
+    """
+    this function to get data and then post the data processing knn
+    """
+    # create instance PredictForm
     form = PredictForm()
     # form successful submitted
     if form.validate_on_submit():
@@ -49,9 +56,9 @@ def predict():
         # dummy data
         # row = [572,1,1,154,232,0,0,164,0,0,2,1,2]
         # process to database
-        ds = Dataset(age=data[0], sex=data[1], cp=data[2], trestbps=data[3], chol=data[4],\
-                fbs=data[5], restecg=data[6], thalach=data[7], exang=data[8], oldpeak=data[9],\
-                slope=data[10], ca=data[11], thal=data[12], target=str(result))
+        ds = Dataset(age=data[0], sex=data[1], cp=data[2], trestbps=data[3], chol=data[4],
+                     fbs=data[5], restecg=data[6], thalach=data[7], exang=data[8], oldpeak=data[9],
+                     slope=data[10], ca=data[11], thal=data[12], target=str(result))
         db.session.add(ds)
         db.session.commit()
         session['predicted'] = ds.id
@@ -62,8 +69,12 @@ def predict():
     # route get
     return render_template('predict/predict.html', title='Cek', form=form)
 
+
 @predict_bp.route('/predict/result')
 def result():
+    """
+    show result of prediction
+    """
     # catch error if session['predicted'] unset
     try:
         # get data by id(session['predicted'])
