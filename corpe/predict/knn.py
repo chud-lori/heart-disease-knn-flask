@@ -1,22 +1,24 @@
+'''
+KNN
+'''
+
 import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine
-import pymysql
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
-# def knn(data):
-#     if data[0] % 2 == 0:
-#         return 1
-#     return 0
 
 def knn(data):
-    sqlEngine        = create_engine('mysql+pymysql://root:root@localhost/heart')
+    '''
+    K-Nearest Neighbors
+    '''
+    sql_engine = create_engine('mysql+pymysql://root:root@localhost/heart')
 
-    dbConnection    = sqlEngine.connect()
+    db_connection = sql_engine.connect()
 
-    dataset           = pd.read_sql("select * from heart.datasets", dbConnection);
+    dataset = pd.read_sql("select * from heart.datasets", db_connection)
 
     pd.set_option('display.expand_frame_repr', False)
 
@@ -30,7 +32,7 @@ def knn(data):
     # Scaling the dataset feature
     train_scaled = scaler.transform(train_feature)
     # user input
-    test_input=np.array(data).reshape(1,-1)
+    test_input = np.array(data).reshape(1, -1)
     # Scaling the dataset feature
     test_input_scaled = scaler.transform(test_input)
 
@@ -49,7 +51,7 @@ def knn(data):
     # Scoring
     # result=classifier.score(train_pca, target)
     # Prediction
-    result=classifier.predict(test_input_pca)
+    result = classifier.predict(test_input_pca)
 
     # # Show result
 

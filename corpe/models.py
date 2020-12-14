@@ -2,6 +2,7 @@ from . import db
 from corpe import db, login_manager
 from flask_login import UserMixin
 
+
 class Dataset(db.Model):
     """Model for datasets."""
 
@@ -25,9 +26,12 @@ class Dataset(db.Model):
     def __repr__(self):
         return '<Age {}>'.format(self.age)
 
+
 @login_manager.user_loader
 def load_user(user_id):
-	return Admin.query.get(int(user_id))
+    return Admin.query.get(int(user_id))
+
+
 class Admin(db.Model, UserMixin):
     """Model for admin"""
 

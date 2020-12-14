@@ -1,5 +1,5 @@
 from flask import (render_template, url_for, flash, redirect,
-                    request, Blueprint, current_app, make_response)
+                   request, Blueprint, current_app, make_response)
 from corpe import db, bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 from corpe.models import Admin, Dataset
@@ -7,25 +7,35 @@ from corpe.admin.forms import LoginForm
 
 admin_bp = Blueprint('admin', __name__)
 
+
 @admin_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('admin.home'))
-    form = LoginForm()
-    if form.validate_on_submit():
+    '''
+    show login page if form not submitted [GET]
+    process form if submitted [POST]
+    '''
+
+    if current_user.is_authenticated:  # check if user logged in
+        return redirect(url_for('admin.home'))  # return to admin dashboard
+    form = LoginForm()  # initiate login instance
+    if form.validate_on_submit():  # check if form submitted
+        # get admin data from database using Admin model
         admin = Admin.query.filter_by(email=form.email.data).first()
         if admin and bcrypt.check_password_hash(admin.password, form.password.data):
             login_user(admin, remember=form.remember.data)
             next = request.args.get('next')
             return redirect(next or url_for('admin.home'))
         else:
+            # if login falied, show message
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('admin/login.html', title='Login', form=form)
+
 
 @admin_bp.route('/logout')
 def logout():
     logout_user()
     return redirect('/')
+
 
 @admin_bp.route('/home')
 @login_required
@@ -33,6 +43,7 @@ def home():
     query = "select * from datasets where id>303"
     datas = db.engine.execute(query)
     return render_template('admin/home.html', datas=datas)
+
 
 @admin_bp.route('/gen')
 def gen():

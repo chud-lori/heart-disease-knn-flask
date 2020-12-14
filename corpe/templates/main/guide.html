@@ -2,112 +2,113 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    <!-- Main -->
-    <section id="main" class="wrapper">
-        <div class="inner">
-            <header class="align-center">
-                <h2>Petunjuk penggunaan</h2>
-                <p>Penggunaan aplikasi prediksi penyakit jantung koroner</p>
-            </header>
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2>Petunjuk penggunaan</h2>
+            <p>Penggunaan aplikasi prediksi penyakit jantung koroner</p>
+        </header>
 
-            <!-- Intro -->
-            <div class="row">
-                <section class="6u 12u$(medium)">
-                    <h2>Bagaimana?</h2>
-                    <p><strong>Pengguna</strong> harus mengisikan data kesehatan yang dimiliki melalui form pada <a
-                            href="{{ url_for('predict.predict') }}">Halaman ini</a>. Data yang diisikan haruslah benar dan tepat agar
-                        didapatkan hasil prediksi yang baik. Detail pengisian ada di bawah ini.</p>
-                </section>
-                <section class="6u 12u$(medium) ">
-                    <h3>Informasi</h3>
-                    <p>Data kesehatan yang dimasukkan akan disimpan di basis data sistem untuk pengembangan
-                        akurasi sistem prediksi tanpa menyebarluaskan data dan identitas pemilik data.</p>
-                </section>
-            </div>
-
-            <hr class="major" />
-            <h4>Data yang dimasukkan</h4>
-            <dl>
-                <dt>Usia</dt>
-                <dd>
-                    <p>Usia pasien saat memasukkan data.</p>
-                </dd>
-                <dt>Jenis kelamin</dt>
-                <dd>
-                    <p>Jenis kelamin pasien, laki-laki/perempuan.</p>
-                </dd>
-                <dt>Jenis nyeri pada dada</dt>
-                <dd>
-                    <p>Jenis nyeri pada dada. <strong>Angina</strong> adalah jenis nyeri
-                        pada dada ketika otot dada tidak mendapat cukup oksigen.</p>
-                </dd>
-                <dt>Tekanan darah istirahat saat istirahat</dt>
-                <dd>
-                    <p>Tekanan darah pasien ketika tidak beraktifitas
-                        atau dalam masa istirahat.</p>
-                </dd>
-                <dt>Kolesterol dalam mg/dl</dt>
-                <dd>
-                    <p>Kadar kolesterol dalam satuan miligram per desiliter</p>
-                </dd>
-                <dt>Kadar gula darah > 120 mg/dl</dt>
-                <dd>
-                    <p>Kadar gula darah, jika lebih dari 120 mg/dl.</p>
-                </dd>
-                <dt>Hasil tes elektrokardiografi saat istirahat</dt>
-                <dd>
-                    <p>Hasil tes
-                        elektrokardiografi ketika pasien istirahat.</p>
-                </dd>
-                <dt>Hasil tes elektrokardiografi saat istirahat</dt>
-                <dd>
-                    <p>Hasil tes
-                        elektrokardiografi ketika pasien istirahat.</p>
-                    <ul class="alt">
-                        <li>Normal.</li>
-                        <li>Having ST-T: Memiliki kelainan gelombang ST-T 
-                            (inversi gelmbang T dan elevasi atau depresi ST > 0.05 mV).</li>
-                        <li>Menunjukkan hipertrofi ventrikel kiri yang mungkin atau 
-                            pasti dengan kriteria estes.</li>
-                    </ul>
-                </dd>
-                <dt>Denyut jantung maksimum.</dt>
-                <dd>
-                    <p>Denyut jantung maksimum yang dicapai pasien.</p>
-                </dd>
-                <dt>Nyeri saat beraktifitas.</dt>
-                <dd>
-                    <p>Nyeri yang dialami pasien saat berolahraga.</p>
-                </dd>
-                <dt>Depresi ST saat beraktifitas.</dt>
-                <dd>
-                    <p>Penurunan ST saat beraktifitas dalam nilai desimal. ST adalah.</p>
-                </dd>
-                <dt>Kemiringan puncak ST saat beraktifitas</dt>
-                <dd>
-                    <p>Kemiringan puncak ST saat beraktifitas</p>
-                    <ul class="alt">
-                        <li>Upsloping: menanjak.</li>
-                        <li>Flat: data.</li>
-                        <li>Downsloping: miring ke bawah.</li>
-                    </ul>
-                </dd>
-                <dt>Pembuluh darah terdeteksi</dt>
-                <dd>
-                    <p>Banyaknya pembuluh darah yang diwarnai 
-                        melalui Fluoroscopy</p>
-                </dd>
-                <dt>Pemeriksaan thalassemia</dt>
-                <dd>
-                    <p></p>
-                    <ul class="alt">
-                        <li>Normal: normal.</li>
-                        <li>Fixed Defect: cacat tetap.</li>
-                        <li>Reversable Defect: cacat yang dapat dikembalikkan.</li>
-                    </ul>
-                </dd>
-            </dl>
+        <!-- Intro -->
+        <div class="row">
+            <section class="6u 12u$(medium)">
+                <h2>Bagaimana?</h2>
+                <p><strong>Pengguna</strong> harus mengisikan data kesehatan yang dimiliki melalui form pada <a
+                        href="{{ url_for('predict.predict') }}">Halaman ini</a>. Data yang diisikan haruslah benar dan
+                    tepat agar
+                    didapatkan hasil prediksi yang baik. Detail pengisian ada di bawah ini.</p>
+            </section>
+            <section class="6u 12u$(medium) ">
+                <h3>Informasi</h3>
+                <p>Data kesehatan yang dimasukkan akan disimpan di basis data sistem untuk pengembangan
+                    akurasi sistem prediksi tanpa menyebarluaskan data dan identitas pemilik data.</p>
+            </section>
         </div>
 
-    </section>
+        <hr class="major" />
+        <h4>Data yang dimasukkan</h4>
+        <dl>
+            <dt>Usia</dt>
+            <dd>
+                <p>Usia pasien saat memasukkan data.</p>
+            </dd>
+            <dt>Jenis kelamin</dt>
+            <dd>
+                <p>Jenis kelamin pasien, laki-laki/perempuan.</p>
+            </dd>
+            <dt>Jenis nyeri pada dada</dt>
+            <dd>
+                <p>Jenis nyeri pada dada. <strong>Angina</strong> adalah jenis nyeri
+                    pada dada ketika otot dada tidak mendapat cukup oksigen.</p>
+            </dd>
+            <dt>Tekanan darah istirahat saat istirahat</dt>
+            <dd>
+                <p>Tekanan darah pasien ketika tidak beraktifitas
+                    atau dalam masa istirahat.</p>
+            </dd>
+            <dt>Kolesterol dalam mg/dl</dt>
+            <dd>
+                <p>Kadar kolesterol dalam satuan miligram per desiliter</p>
+            </dd>
+            <dt>Kadar gula darah > 120 mg/dl</dt>
+            <dd>
+                <p>Kadar gula darah, jika lebih dari 120 mg/dl.</p>
+            </dd>
+            <dt>Hasil tes elektrokardiografi saat istirahat</dt>
+            <dd>
+                <p>Hasil tes
+                    elektrokardiografi ketika pasien istirahat.</p>
+            </dd>
+            <dt>Hasil tes elektrokardiografi saat istirahat</dt>
+            <dd>
+                <p>Hasil tes
+                    elektrokardiografi ketika pasien istirahat.</p>
+                <ul class="alt">
+                    <li>Normal.</li>
+                    <li>Having ST-T: Memiliki kelainan gelombang ST-T
+                        (inversi gelmbang T dan elevasi atau depresi ST > 0.05 mV).</li>
+                    <li>Menunjukkan hipertrofi ventrikel kiri yang mungkin atau
+                        pasti dengan kriteria estes.</li>
+                </ul>
+            </dd>
+            <dt>Denyut jantung maksimum.</dt>
+            <dd>
+                <p>Denyut jantung maksimum yang dicapai pasien.</p>
+            </dd>
+            <dt>Nyeri saat beraktifitas.</dt>
+            <dd>
+                <p>Nyeri yang dialami pasien saat berolahraga.</p>
+            </dd>
+            <dt>Depresi ST saat beraktifitas.</dt>
+            <dd>
+                <p>Penurunan ST saat beraktifitas dalam nilai desimal. ST adalah.</p>
+            </dd>
+            <dt>Kemiringan puncak ST saat beraktifitas</dt>
+            <dd>
+                <p>Kemiringan puncak ST saat beraktifitas</p>
+                <ul class="alt">
+                    <li>Upsloping: menanjak.</li>
+                    <li>Flat: datar.</li>
+                    <li>Downsloping: miring ke bawah.</li>
+                </ul>
+            </dd>
+            <dt>Pembuluh darah terdeteksi</dt>
+            <dd>
+                <p>Banyaknya pembuluh darah yang diwarnai
+                    melalui Fluoroscopy</p>
+            </dd>
+            <dt>Pemeriksaan thalassemia</dt>
+            <dd>
+                <p></p>
+                <ul class="alt">
+                    <li>Normal: normal.</li>
+                    <li>Fixed Defect: cacat tetap.</li>
+                    <li>Reversable Defect: cacat yang dapat dikembalikkan.</li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+</section>
 {% endblock %}

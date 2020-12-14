@@ -10,10 +10,6 @@ from flask_bcrypt import Bcrypt
 # from flask_migrate import Migrate
 from flask_login import LoginManager
 from corpe.config import Config
-# Import routes
-from corpe.predict.routes import predict_bp
-from corpe.admin.routes import admin_bp
-from corpe.main_routes import main_bp
 
 
 # Initiate object
@@ -43,6 +39,10 @@ def create_app(config=Config):
     login_manager.init_app(app)
     # run route from the app context
     with app.app_context():
+        # Import routes
+        from corpe.predict.routes import predict_bp
+        from corpe.admin.routes import admin_bp
+        from corpe.main_routes import main_bp
         app.register_blueprint(predict_bp)
         app.register_blueprint(admin_bp)
         app.register_blueprint(main_bp)

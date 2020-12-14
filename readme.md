@@ -12,7 +12,7 @@ Prediction Heart Disease
 
 - Create an virtual enviroment and make sure to run inside it
 - Run `pip install -r requirements.txt`
-- Set the config.py for the database and etc.
+- Set the `config.py` for the database and etc.
 - Create a database named `corpe`
 - Place `heart.csv` inside `instance` directory or create the directory if not exist
 - In python interpreter run
@@ -20,6 +20,15 @@ Prediction Heart Disease
 ```python
     from corpe import db, create_app
     db.create_all(app=create_app())
+```
+
+- Create `config.py` file
+
+```python
+class Config(object):
+    SECRET_KEY = # generate random key using: os.urandom(24)
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://username:password@database' # connect to database system
+
 ```
 
 ## Set Up environment variables (Linux)

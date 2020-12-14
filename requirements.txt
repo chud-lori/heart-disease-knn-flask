@@ -1,5 +1,6 @@
 astroid==2.4.1
 attrs==19.3.0
+autopep8==1.5.4
 bcrypt==3.1.7
 cffi==1.14.0
 click==7.1.1
@@ -26,6 +27,7 @@ packaging==20.3
 pandas==1.0.1
 pluggy==0.13.1
 py==1.8.1
+pycodestyle==2.6.0
 pycparser==2.20
 pylint==2.5.2
 PyMySQL==0.9.3

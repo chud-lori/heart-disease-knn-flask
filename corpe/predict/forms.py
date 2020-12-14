@@ -28,7 +28,7 @@ class PredictForm(FlaskForm):
                     validators=[InputRequired()], coerce=int)
     # ca = IntegerField('Number of major vessels (0-3) colored by flourosopy', validators=[DataRequired(), 
     #                 NumberRange(min=0, max=3, message='Tidak valid')])
-    thal = SelectField('Pemeriksaan thalassemia', choices=[(1, 'Fixed defect'), (2, 'Normal'), (3, 'Reversable defect')],
+    thal = SelectField('Thalassemia examination', choices=[(1, 'Fixed defect'), (2, 'Normal'), (3, 'Reversable defect')],
                     validators=[InputRequired()], coerce=int) # selectornya masih bingung belum pas | 
                                                                 #  katanya kalo 0 sih ga ada nilai, jadi pake 1,2,3
                                                                 # 0 null
