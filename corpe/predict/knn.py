@@ -14,7 +14,8 @@ def knn(data):
     '''
     K-Nearest Neighbors
     '''
-    sql_engine = create_engine('mysql+pymysql://root:root@localhost/heart')
+    sql_engine = create_engine(
+        'postgres://yteqsluiclaqqf:a68ff5634a2c9998a11a0bdf8086a48a9cfba042c80acda300c0d991bd4c5d60@ec2-52-206-15-227.compute-1.amazonaws.com:5432/dbuu5r7mpfu1re')
 
     db_connection = sql_engine.connect()
 
