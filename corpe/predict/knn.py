@@ -19,7 +19,7 @@ def knn(data):
 
     db_connection = sql_engine.connect()
 
-    dataset = pd.read_sql("select * from heart.datasets", db_connection)
+    dataset = pd.read_sql("select * from datasets", db_connection)
 
     pd.set_option('display.expand_frame_repr', False)
 
